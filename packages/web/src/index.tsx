@@ -3,8 +3,8 @@ import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { render } from 'react-dom';
 
-import { Hi } from './Hi';
-import { PeopleProvider } from './peopleProvider';
+import { Stunts } from './pages/main';
+import { StuntsProvider } from './providers';
 
 const GRAPHQL_API_URL = 'http://localhost:8080/graphql';
 
@@ -19,9 +19,9 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <PeopleProvider>
-      <Hi />
-    </PeopleProvider>
+    <StuntsProvider>
+      <Stunts />
+    </StuntsProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );
