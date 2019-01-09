@@ -1,2 +1,4 @@
 import { createContext } from 'react';
-export const StuntsContext = createContext({});
+const StuntsContext = createContext({});
+
+export const { Provider, Consumer } = StuntsContext;

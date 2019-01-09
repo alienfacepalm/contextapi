@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { render } from 'react-dom';
 
-import { StuntsContext } from './contexts';
+import { Provider as StuntsProvider } from './contexts';
 import { Stunts } from './pages/main';
 
 import stunts from './data/stunts';
@@ -22,9 +22,9 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <StuntsContext.Provider value={{ stunts }}>
+    <StuntsProvider value={{ stunts }}>
       <Stunts />
-    </StuntsContext.Provider>
+    </StuntsProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );
