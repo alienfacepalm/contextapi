@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { render } from 'react-dom';
 
 import { Hi } from './Hi';
+import { PeopleProvider } from './peopleProvider';
 
 const GRAPHQL_API_URL = 'http://localhost:8080/graphql';
 
@@ -18,7 +19,9 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <Hi />
+    <PeopleProvider>
+      <Hi />
+    </PeopleProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );

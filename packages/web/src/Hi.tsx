@@ -7,14 +7,19 @@ import { MessageContext } from './context';
  * Output component
  * @param props
  */
+
 export const Hi = (props: any) => {
   return (
-    <MessageContext.Provider value={{ name: 'Yosh' }}>
-      <MessageContext.Consumer>
-        {(context: any) => {
-          return <p>{context.name}</p>;
-        }}
-      </MessageContext.Consumer>
-    </MessageContext.Provider>
+    <MessageContext.Consumer>
+      {(context: any) => {
+        return (
+          <ol>
+            {context.names.map((name: any) => (
+              <li>{name}</li>
+            ))}
+          </ol>
+        );
+      }}
+    </MessageContext.Consumer>
   );
 };
