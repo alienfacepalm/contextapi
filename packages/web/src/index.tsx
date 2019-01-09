@@ -3,15 +3,18 @@ import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { render } from 'react-dom';
 
+import { StuntsContext } from './contexts';
 import { Stunts } from './pages/main';
-import { StuntsProvider } from './providers';
+
+import stunts from './data/stunts';
 
 const GRAPHQL_API_URL = 'http://localhost:8080/graphql';
 
 const client = new ApolloClient({
   clientState: {
     resolvers: {
-      Query: {}
+      Query: {},
+      Mutation: {}
     }
   },
   uri: GRAPHQL_API_URL
@@ -19,9 +22,9 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <StuntsProvider>
+    <StuntsContext.Provider value={{ stunts }}>
       <Stunts />
-    </StuntsProvider>
+    </StuntsContext.Provider>
   </ApolloProvider>,
   document.getElementById('root')
 );
